@@ -1,0 +1,128 @@
+<meta charset="utf-8" />
+
+<body bgcolor="yellow">
+    <H1>
+        <center>
+            <table width="80%" border="1" bgcolor="OldLace">
+                <tr style='font-size: 60;'>
+                    <td>פעולות</td>
+                    <td>כמות במלי</td>
+                    <td>קישור</td>
+                    <td> תמונה</td>
+                    <td>תיאור הספר</td>
+                    <td>סוג</td>
+                    <td>סופר</td>
+                    <td>שם</td>
+                </tr>
+                <tr style='font-size: 36;'>
+                    <td>
+                        <button type="button" onclick="returnBook('sonic-books')">החזרה</button>
+                        <button type="button" onclick="loanBook('sonic-books')">השאלה</button>
+                    </td>
+                    <td id="sonic-books">88</td>
+                    <td> <a target=”_blank”
+                            href="https://he.wikipedia.org/wiki/%D7%A1%D7%95%D7%A0%D7%99%D7%A7_%D7%94%D7%A7%D7%99%D7%A4%D7%95%D7%93_(IDW_Publishing)">
+                            קישור לספר
+                        </a></td>
+                    <td><img src="סוניק.jpg" width="35%"></td>
+                    <td>קיפוד נילחם בריעם</td>
+                    <td>קומיקס</td>
+                    <td>איאן פלין</td>
+                    <td>סוניק</td>
+                </tr>
+
+                <tr style='font-size: 36;'>
+                    <td>
+                        <button type="button" onclick="returnBook('harry-book')">החזרה</button>
+                        <button type="button" onclick="loanBook('harry-book')">השאלה</button>
+                    </td>
+                    <td id="harry-book">99</td>
+                    <td><a target=”_blank”
+                            href="https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%A8%D7%99_%D7%A4%D7%95%D7%98%D7%A8_%D7%95%D7%90%D7%91%D7%9F_%D7%94%D7%97%D7%9B%D7%9E%D7%99%D7%9D">
+                            קישור לספר
+                    <td><img src="הארי.jpeg" width="35%"></td>
+                    <td>ילד קוסם</td>
+                    <td>רגיל</td>
+                    <td>גיי קיי רולינג </td>
+                    <td>ארי פוטר</td>
+                </tr>
+                <tr style='font-size: 36;'>
+                    <td>
+                        <button type="button" onclick="returnBook('f-g')">החזרה</button>
+                        <button type="button" onclick="loanBook('f-g')">השאלה</button>
+                    </td>
+                    <td id="f-g">99 </td>
+                    <td><a target=”_blank”
+                            href="https://he.wikipedia.org/wiki/%D7%A4%D7%A8%D7%A1%D7%99_%D7%92%27%D7%A7%D7%A1%D7%95%D7%9F">
+                            קישור לספר
+                        </a></td>
+                    <td><img src="פרסי.jpg" width="35%"></td>
+                    <td>חצוי נילחם במיפלצות</td>
+                    <td>רגיל</td>
+                    <td>ריק רידן</td>
+                    <td>פרסי ג'קסון</td>
+                </tr>
+                <tr style='font-size: 36;'>
+                    <td><button type="button" onclick="returnBook('g-g')">החזרה</button>
+
+                        <button type="button" onclick="loanBook('g-g')">השאלה</button>
+                    </td>
+                    <td id="g-g"> 99</td>
+                    <td><a target=”_blank”
+                            href="https://power-boost.co.il/%D7%90%D7%A8%D7%A5-%D7%94%D7%90%D7%92%D7%93%D7%95%D7%AA-%D7%A7%D7%A1%D7%9D-%D7%94%D7%9E%D7%A9%D7%90%D7%9C%D7%94-%D7%95%D7%99%D7%A7%D7%99%D7%A4%D7%93%D7%99%D7%94/">
+                            קישור לספר
+                        </a></td>
+                    <td><img src="קסם-המשאלה.png" width="45%"></td>
+                    <td>שתי ילדים בעולם האגדות</td>
+                    <td>רגיל</td>
+                    <td>כריס קולפר</td>
+                    <td>ארץ האגדות</td>
+                </tr>
+            </table>
+        </center>
+    </H1>
+</body>
+<script>
+    var sonicBooks = 20;
+    var harryBooks = 25;
+    var fg = 18;
+    var gg = 44;
+    document.getElementById("sonic-books").textContent = sonicBooks;
+    document.getElementById("harry-book").textContent = harryBooks;
+    document.getElementById("f-g").textContent = fg;
+    document.getElementById("g-g").textContent = gg;
+
+    numberOfBooks = {
+        "sonic-books": 20,
+        "harry-book": 25,
+        "f-g": 18,
+        "g-g": 18,
+    }
+    
+
+
+    function loanBook(bookId) {
+        var booksNumber = document.getElementById(bookId).textContent;
+        if (booksNumber == 0) {
+            alert("ניגמר במלאי");
+        } else {
+            var newBooksNumber = booksNumber - 1;
+            document.getElementById(bookId).textContent = newBooksNumber;
+            alert('לקחת ספר!');
+        }
+    }
+
+    function returnBook(bookId) {
+        var booksNumber = document.getElementById(bookId).textContent;
+        numberOfBooks["harry"]
+        if (booksNumber == numberOfBooks[bookId]) {
+            alert("אין לך ספרים");
+        } else {
+            var newBooksNumber = parseInt(booksNumber) + 1;
+            document.getElementById(bookId).textContent = newBooksNumber;
+            alert('להחזיר ספר!');
+        }
+
+    }
+
+</script>

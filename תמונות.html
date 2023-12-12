@@ -1,0 +1,19 @@
+<img id="g1" src="1.jpeg" width="150">
+<img id="g2" src="./snake/catalogue/סוניק.jpg" width="150">
+<script>
+    setTimeout(() => {
+        document.getElementById("g1").src = "./snake/catalogue/הארי.jpeg";
+        setTimeout(() => {
+            var g1 = document.getElementById("g1").src;
+            var g2 = document.getElementById("g2").src;
+            document.getElementById("g1").src = g2;
+            document.getElementById("g2").src = g1;
+        }
+            , 4999);
+
+    }
+        , 1234);
+
+
+
+</script>

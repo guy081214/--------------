@@ -1,0 +1,83 @@
+<body style="margin: 0px;" bgcolor="yellow">
+    <center>
+        <!-- <h1>המשחק של גיא</h1> -->
+        <marquee id="gameBoard" scrollamount="5" direction="down" height="250" bgcolor="red" width="300"
+            behavior="alternate">
+            <marquee id="ver" scrollamount="5" behavior="alternate">
+                <div style="width: min-content; background-color: rgba(255, 204, 51, 0.646); border-radius: 50%;"
+                    id="fsur" display="inline-block">🏐</div>
+            </marquee>
+        </marquee>
+
+        <br>
+        <img id="fdf" src="board.png" width="100" height="10">
+
+        <br>
+        <br>
+        <h2>
+            Hit strike: <span id="hitStrike">0</span>
+        </h2>
+    </center>
+    <script>
+        var l = 0;
+        const k = 4;
+        var board = document.getElementById("fdf");
+        var gameBoard = document.getElementById("gameBoard");
+        var ver = document.getElementById("ver");
+        var ball = document.getElementById("fsur");
+        var hitStrike = document.getElementById("hitStrike");
+        board.style.position = "relative";
+        board.style.left = l;
+        var isGt = false;
+        setInterval(checkGt, 30);
+        function checkGt() {
+            var ballParams = ball.getBoundingClientRect();
+            var ballCenter = ballParams.left + ballParams.width / 2;
+            var ballBottom = ballParams.bottom;
+            // console.log("ball bottom: " + ballBottom + ", board bottom: " + gameBoard.height);
+            boardParams = board.getBoundingClientRect();
+
+            if (ballBottom > gameBoard.height - 1) {
+                console.log("ball reach bottom: ballCenter = " + ballCenter + ", boardParams.left = " + boardParams.left +
+                    ", ballParams.right = " + boardParams.left + board.width);
+                if (ballCenter > boardParams.left && ballCenter < boardParams.left + board.width) {
+                    console.log("HIT");
+                    gameBoard.scrollAmount = gameBoard.scrollAmount + 5;
+                    ver.scrollAmount = ver.scrollAmount + 3;
+                    hitStrike.textContent = parseInt(hitStrike.textContent) + 1;
+                } else {
+                    console.log("MISS");
+                    hitStrike.textContent = 0;
+                    ver.scrollAmount = 3;
+                    gameBoard.scrollAmount = 5;
+                }
+            }
+
+        }
+
+        document.onkeydown = function (rrr) {
+            if (rrr.keyCode == 39) {
+                var cl = board.style.left;
+                var cli = parseInt(cl);
+                if (board.getBoundingClientRect().left < gameBoard.getBoundingClientRect().right - board.width) {
+                    board.style.left = cli + k;
+                }
+            }
+            if (rrr.keyCode == 37) {
+                var cl = board.style.left;
+                var cli = parseInt(cl);
+                if (board.getBoundingClientRect().left > gameBoard.getBoundingClientRect().left) {
+                    board.style.left = cli - k;
+                }
+            }
+        }
+
+        var abhu = 0;
+        var seu = 0;
+        setInterval(YHNR, 100);
+        function YHNR() {
+            abhu++;
+
+        }
+    </script>
+</body>
